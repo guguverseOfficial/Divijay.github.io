@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divijay Engine — F*ck Heavy Engines</title>
+    <style>
+        /* Site styles */
+        body {
+            background-color: #fcec6a;
+            font-family: 'Arial Black', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #222;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 4px 4px 0px #ff0000;
+        }
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+        .kotik-img {
+            max-width: 300px;
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            border: 5px solid #222;
+            background-color: white;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border: 4px solid #222;
+            border-radius: 10px;
+            transition: transform 0.1s;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .btn-download { background-color: #2ecc71; }
+        .btn-github { background-color: #333; }
+        .btn-extra { background-color: #ffcc00; color: #222; }
+        .btn-why { background-color: #9b59b6; }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Стили для модальных окон */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #fcec6a;
+            padding: 30px;
+            border: 5px solid #222;
+            border-radius: 20px;
+            max-width: 600px;
+            text-align: center;
+            font-size: 1.2em;
+            position: relative;
+            width: 90%;
+        }
+        .close-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: 3px solid #222;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        /* Стили для кнопок скачивания внутри окна */
+        .mirror-btn {
+            display: block;
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border: 3px solid #222;
+            border-radius: 10px;
+            transition: transform 0.1s;
+        }
+        .mirror-btn:hover { transform: scale(1.05); }
+        .mirror-github { background-color: #333; }
+        .mirror-kiwi { background-color: #3498db; }
+        .mirror-mediafire { background-color: #ff6600; }
+
+        /* Стиль для предупреждения */
+        .warning-box {
+            background-color: #fff3cd; /* Светло-желтый */
+            color: #856404;
+            border: 3px dashed #ff0000; /* Красная рамка */
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>DIVIJAY ENGINE</h1>
+        <div class="subtitle">Undertale was made in GameMaker, and I'm making Divijay Engine. <br>Why the hell would you doubt this engine!</div>
+
+        <img src="kotik.png" alt="Kotik with glasses" class="kotik-img" onerror="this.style.display='none'">
+
+        <div class="buttons">
+            <button class="btn btn-download" onclick="document.getElementById('downloadModal').style.display='flex'">Download Engine</button>
+            
+            <a href="https://github.com/guguverseOfficial/friday-night-funkin-divijay-engine" class="btn btn-github" target="_blank">Source Code (GitHub)</a>
+            <a href="https://github.com/guguverseOfficial/friday-night-funkin-divijay-engine/blob/main/README.md" class="btn btn-extra" target="_blank">Extra (Read README)</a>
+            <button class="btn btn-why" onclick="document.getElementById('whyModal').style.display='flex'">Why is this necessary?</button>
+        </div>
+
+        <div class="footer">
+            <p>🐱 Made with love for memes and Kotik. HR HRA! 🕶️</p>
+        </div>
+    </div>
+
+    <!-- Модальное окно для скачивания -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <h2>Choose Download Mirror</h2>
+            
+            <!-- ПРЕДУПРЕЖДЕНИЕ -->
+            <div class="warning-box">
+                ⚠️ WARNING: If you download the engine from MediaFire or Kiwi, know that there will be OLD VERSIONS, because I do not upload new versions there (only on GitHub). For the latest version, always use GitHub!
+            </div>
+
+            <p>Select a platform to download Divijay Engine:</p>
+            
+            <a href="https://github.com/guguverseOfficial/friday-night-funkin-divijay-engine/releases/latest" class="mirror-btn mirror-github" target="_blank">GitHub (Recommended - Always Latest)</a>
+            <a href="https://file.kiwi/177096f1#2BVs5K0r6DELnjY1UNHbhg" class="mirror-btn mirror-kiwi" target="_blank">Kiwi (Old Version)</a>
+            <a href="https://www.mediafire.com/file/x4oa5zihhqzb861/Friday.Night.Funkin.divijay.Engine.zip/file" class="mirror-btn mirror-mediafire" target="_blank">MediaFire (Old Version)</a>
+            
+            <button class="close-btn" onclick="document.getElementById('downloadModal').style.display='none'">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно для "Why is this necessary?" -->
+    <div id="whyModal" class="modal">
+        <div class="modal-content">
+            <h2>Why is this necessary?</h2>
+            <p>We are proving that to make a cool engine, you don't need to download gigabytes of data. <br><br> <b>Only 4 MB.</b></p>
+            <button class="close-btn" onclick="document.getElementById('whyModal').style.display='none'">Close</button>
+        </div>
+    </div>
+
+</body>
+</html>
